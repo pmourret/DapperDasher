@@ -10,12 +10,17 @@ int main(int argc, char* argv[])
     {
         BeginDrawing();
             ClearBackground(BLACK);
-            DrawText("Hello World", textPosX, textPosY,16, WHITE);
-        textPosY += textDirection;
-        if (textPosY > windowHeight || textPosY < 0)
-        {
-            textDirection = -textDirection ;
-        }
+            DrawRectangle(rectPosX, rectPosY, rectWidth, rectHeight, RED);
+            rectPosX += velocity;
+            if (rectPosX > windowWidth || rectPosX < 0)
+            {
+                velocity = -velocity;
+            }
+            rectPosY += jump;
+            if (rectPosY > windowHeight || rectPosY < 0)
+            {
+                jump = -jump;
+            }
         EndDrawing();
     }
     CloseWindow();
